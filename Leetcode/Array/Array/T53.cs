@@ -10,17 +10,20 @@ namespace Array
         public void Test(int[] nums, int result)
         {
             var sum = 0;
+            var maxSum = int.MinValue;
 
             foreach (var num in nums)
             {
-                sum = Math.Max(sum, sum + num);
-                if (sum <= 0)
+                sum += num;
+                if (num > sum)
                 {
                     sum = num;
                 }
+
+                maxSum = Math.Max(sum, maxSum);
             }
 
-            sum.Should().Be(result);
+            maxSum.Should().Be(result);
         }
     }
 }
