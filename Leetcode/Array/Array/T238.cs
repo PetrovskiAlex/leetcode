@@ -17,18 +17,16 @@ namespace Array
 
         private static int[] GetProduct(int[] nums)
         {
-            var length = nums.Length;
-
-            var result = new int[length];
+            var result = new int[nums.Length];
 
             result[0] = 1;
-            for (var i = 1; i < length; i++) {
+            for (var i = 1; i < nums.Length; i++) {
 
                 result[i] = nums[i - 1] * result[i - 1];
             }
 
             var x = 1;
-            for (var i = length - 1; i >= 0; i--)
+            for (var i = nums.Length - 1; i >= 0; i--)
             {
                 result[i] = result[i] * x;
                 x *= nums[i];
