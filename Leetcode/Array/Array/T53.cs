@@ -14,13 +14,12 @@ namespace Array
 
             foreach (var num in nums)
             {
-                sum += num;
-                if (num > sum)
-                {
-                    sum = num;
-                }
+                sum = Math.Max(num, num + sum);
 
-                maxSum = Math.Max(sum, maxSum);
+                if (sum > maxSum)
+                {
+                    maxSum = sum;
+                }
             }
 
             maxSum.Should().Be(result);
