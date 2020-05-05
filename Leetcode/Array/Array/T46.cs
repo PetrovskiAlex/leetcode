@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
@@ -8,34 +7,71 @@ namespace Array
 {
     public class T46
     {
-        [TestCase(new []{1, 2, 3})]
-        public void PermuteTest(int[] nums) {
-            var result = new List<List<int>>();
+        [TestCase(new[] {1, 2, 3})]
+        [TestCase(new[] {1, 2, 3, 4})]
+        [TestCase(new[] {1, 2, 3, 4, 5})]
+        public void PermuteTest(int[] nums)
+        {
+            var result = new List<IList<int>>();
 
-            var permute = Permute(nums);
+            Permute(nums, result);
 
             result.Count.Should().Be(Factorial(nums.Length));
         }
 
-        public List<List<int>> Permute(int[] nums) {
-            var list = new List<List<int>>();
-            // Arrays.sort(nums); // not necessary
-            Backtrack(list, new List<int>(), nums);
-            return list;
-        }
+        private IList<IList<int>> Permute(int[] nums, List<IList<int>> result)
+        {
+            if (nums == null) return null;
+            if (nums.Length == 1) return new List<IList<int>>{new List<int>{nums[0]}};
+            if (nums.Length == 2) return new List<IList<int>>{new List<int>(nums), new List<int>(nums.Reverse())};
+            
+            for (var i = 0; i < nums.Length; i++)
+            {
+                var temp = nums[0];
+                nums[0] = nums[i];
+                nums[i] = temp;
 
-        private void Backtrack(List<List<int>> list, List<int> tempList, int [] nums){
-            if(tempList.Count == nums.Length){
-                list.Add(new List<int>(tempList));
-            } else{
-                for(int i = 0; i < nums.Length; i++){ 
-                    if(tempList.Contains(nums[i])) continue; // element already exists, skip
-                    tempList.Add(nums[i]);
-                    Backtrack(list, tempList, nums);
-                    tempList.Remove(tempList.Count - 1);
+                var permutations = Permute(SubArray(nums, 1));
+                foreach (var permutation in permutations)
+                {
+                    permutation.Insert(0, nums[0]);
+                    result.Add(permutation);
                 }
             }
-        } 
+
+            return result;
+        }
+
+        private List<List<int>> Permute(int[] nums)
+        {
+            if (nums == null) return null;
+            if (nums.Length == 1) return new List<List<int>>{new List<int>{nums[0]}};
+            if (nums.Length == 2) return new List<List<int>>{new List<int>(nums), new List<int>(nums.Reverse())};
+            
+            var result = new List<List<int>>();
+            for (var i = 0; i < nums.Length; i++)
+            {
+                var temp = nums[0];
+                nums[0] = nums[i];
+                nums[i] = temp;
+
+                var permutations = Permute(SubArray(nums, 1));
+                foreach (var permutation in permutations)
+                {
+                    permutation.Insert(0, nums[0]);
+                    result.Add(permutation);
+                }
+            }
+
+            return result;
+        }
+        
+        private static int[] SubArray(int[] data, int index)
+        {
+            var result = new int[data.Length - index];
+            System.Array.Copy(data, index, result, 0, data.Length - index);
+            return result;
+        }
         
         private int Factorial(int n)
         {
