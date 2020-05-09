@@ -16,6 +16,7 @@ namespace Array
         [TestCase("a1by", new []{"a1by","a1bY","a1By","a1BY","A1by","A1bY","A1By","A1BY"})]
         [TestCase("3z4", new []{"3z4", "3Z4"})]
         [TestCase("12345", new []{"12345"})]
+        [TestCase("12345a", new []{"12345a", "12345A"})]
         public void Test(string s, string[] output)
         {
             var count = s.Count(char.IsLetter);
