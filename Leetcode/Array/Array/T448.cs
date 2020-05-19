@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
@@ -15,10 +16,26 @@ namespace Array
         public void Test(int[] nums, int[] output)
         {
             if (!nums.Any()) return;
-            
-            var result = new List<int>();
 
-            
+            for (var i = 0; i < nums.Length; i++)
+            {
+                var el = Math.Abs(nums[i]);
+
+                if (nums[el - 1] > 0)
+                {
+                    nums[el - 1] = -nums[el - 1];
+                }
+            }
+
+            var result = new List<int>();
+            for (var k = 0; k < nums.Length; k++)
+            {
+                if (nums[k] > 0)
+                {
+                    result.Add(k + 1);
+                }
+            }
+
             result.Should().BeEquivalentTo(output);
         }
     }
