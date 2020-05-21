@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array\Array\Array.csproj", "{3DF2F761-4471-4FD6-873D-83A46DB1EC8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{CBFF37E8-5665-4B56-A28F-B3077BA0541F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{3DF2F761-4471-4FD6-873D-83A46DB1EC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DF2F761-4471-4FD6-873D-83A46DB1EC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DF2F761-4471-4FD6-873D-83A46DB1EC8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBFF37E8-5665-4B56-A28F-B3077BA0541F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFF37E8-5665-4B56-A28F-B3077BA0541F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFF37E8-5665-4B56-A28F-B3077BA0541F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFF37E8-5665-4B56-A28F-B3077BA0541F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
