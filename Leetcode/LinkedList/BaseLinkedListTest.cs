@@ -20,7 +20,7 @@ namespace LinkedList
             var root = new ListNode(numbers.First());
             var current = root;
 
-            foreach (var number in numbers)
+            foreach (var number in numbers.Skip(1))
             {
                 var newNode = new ListNode(number);
                 current.next = newNode;
@@ -34,7 +34,7 @@ namespace LinkedList
         {
             var result = new List<int>();
 
-            while (listNode.next != null)
+            while (listNode != null)
             {
                 result.Add(listNode.val);
 
