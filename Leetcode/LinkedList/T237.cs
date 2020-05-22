@@ -22,16 +22,9 @@ namespace LinkedList
                 root = root.next;
             }
 
-            var prev = root;
-            while (root.next != null)
-            {
-                root.val = root.next.val;
+            root.val = root.next.val;
+            root.next = root.next.next;
 
-                prev = root;
-                root = root.next;
-            }
-
-            prev.next = null;
             ToArray(node).Should().BeEquivalentTo(output);
         }
     }
