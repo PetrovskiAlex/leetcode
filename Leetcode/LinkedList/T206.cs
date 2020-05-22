@@ -14,18 +14,7 @@ namespace LinkedList
         {
             var root = CreateLinkedList(source);
 
-            ListNode prev = null;
-            while (root.next != null)
-            {
-                var next = root.next;
-
-                root.next = prev;
-
-                prev = root;
-                root = next;
-            }
-
-            root.next = prev;
+            root = ListNodeHelpers.Reverse(root);
 
             ToArray(root).Should().BeEquivalentTo(result);
         }
