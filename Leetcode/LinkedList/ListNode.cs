@@ -1,5 +1,8 @@
-﻿namespace LinkedList
+﻿using System.Diagnostics;
+
+namespace LinkedList
 {
+    [DebuggerDisplay("val = {val}")]
     public class ListNode
     {
         public int val { get; set; }
