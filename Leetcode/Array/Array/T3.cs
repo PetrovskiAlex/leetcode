@@ -19,37 +19,26 @@ namespace Array
         public void Test(string s, int output)
         {
             var max = 0;
-            for (int i = 0; i < s.Length; i++)
-            {
-                var subMax = GetMaxSubstring(s.Substring(i, s.Length - i));
-                max = Math.Max(max, subMax);
-            }
-
-            max.Should().Be(output);
-        }
-
-        private static int GetMaxSubstring(string s)
-        {
-            var result = 0;
+            var i = 0;
+            var j = 0;
 
             var set = new HashSet<char>();
-            foreach (var c in s)
+            while (i < s.Length && j < s.Length)
             {
-                if (set.Contains(c))
+                if (!set.Contains(s[j]))
                 {
-                    set = new HashSet<char> {c};
+                    set.Add(s[j]);
+                    j++;
+                    max = Math.Max(max, j - i);
                 }
                 else
                 {
-                    set.Add(c);
-                    if (result < set.Count)
-                    {
-                        result = set.Count;
-                    }
+                    set.Remove(s[i]);
+                    i++;
                 }
             }
 
-            return result;
+            max.Should().Be(output);
         }
     }
 }
