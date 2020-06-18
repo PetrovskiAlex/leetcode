@@ -3,7 +3,7 @@ using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace Array
+namespace Backtracking
 {
     public class T46
     {

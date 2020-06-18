@@ -4,7 +4,7 @@ using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace Array
+namespace Backtracking
 {
     /*
      * 784. Letter Case Permutation
