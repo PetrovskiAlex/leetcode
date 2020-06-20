@@ -19,6 +19,35 @@ namespace Backtracking
             result.Count.Should().Be(Factorial(nums.Length));
         }
 
+        [TestCase(new[] {1, 2, 3})]
+        [TestCase(new[] {1, 2, 3, 4})]
+        [TestCase(new[] {1, 2, 3, 4, 5})]
+        public void PermuteBacktrackTest(int[] nums)
+        {
+            var result = new List<IList<int>>();
+
+            Dfs(nums, new List<int>(), result);
+
+            result.Count.Should().Be(Factorial(nums.Length));
+        }
+        
+        private void Dfs(int[] input, List<int> temp, List<IList<int>> result)
+        {
+            if (temp.Count == input.Length)
+            {
+                result.Add(new List<int>(temp));    
+            }
+
+            for (var i = 0; i < input.Length; i++)
+            {
+                if(temp.Contains(input[i])) continue;
+
+                temp.Add(input[i]);
+                Dfs(input, temp, result);
+                temp.RemoveAt(temp.Count - 1);
+            }
+        }
+        
         private IList<IList<int>> Permute(int[] nums, List<IList<int>> result)
         {
             if (nums == null) return null;
