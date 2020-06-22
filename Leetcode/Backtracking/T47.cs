@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FluentAssertions;
 using NUnit.Framework;
 
 namespace Backtracking
@@ -13,7 +12,7 @@ namespace Backtracking
 
             Dfs(nums, new List<int>(), result, new bool[nums.Length]);
         }
-        
+
         private void Dfs(int[] input, List<int> temp, List<IList<int>> result, bool[] used)
         {
             if (temp.Count == input.Length)
