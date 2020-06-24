@@ -27,9 +27,12 @@ namespace Backtracking
 
             for (var i = start; i < input.Count; i++)
             {
-                temp.Add(input[i]);
-                Dfs(i + 1, input, temp, result, k);
-                temp.RemoveAt(temp.Count - 1);
+                if (temp.Count < k)
+                {
+                    temp.Add(input[i]);
+                    Dfs(i + 1, input, temp, result, k);
+                    temp.RemoveAt(temp.Count - 1);
+                }
             }
         }
     }
