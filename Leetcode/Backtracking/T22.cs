@@ -25,10 +25,7 @@ namespace Backtracking
             }
             else
             {
-                for (var i = start; i < k * 2 - 1; i++)
-                {
-                    
-                }
+                
             }
         }
     }
