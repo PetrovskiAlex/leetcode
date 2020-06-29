@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -12,12 +11,12 @@ namespace Backtracking
         {
             var result = new HashSet<string>();
 
-            Dfs(0, "(", result, count);
+            Dfs(0, 0, "", result, count);
 
             result.Should().BeEquivalentTo(output);
         }
 
-        private void Dfs(int start, string temp, HashSet<string> result, int k)
+        private void Dfs(int opened, int closed, string temp, HashSet<string> result, int k)
         {
             if (temp.Length == k * 2)
             {
@@ -25,7 +24,15 @@ namespace Backtracking
             }
             else
             {
-                
+                if (opened < k)
+                {
+                    Dfs(opened + 1, closed, temp + "(", result, k);
+                }
+
+                if (closed < opened)
+                {
+                    Dfs(opened, closed + 1, temp + ")", result, k);
+                }
             }
         }
     }
