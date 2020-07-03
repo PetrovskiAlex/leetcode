@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FluentAssertions;
 using NUnit.Framework;
 
 namespace Backtracking
@@ -9,6 +10,7 @@ namespace Backtracking
         public void Test(string characters, int length)
         {
             var combinations = GetCombinations(characters, length);
+            combinations.Should().NotBeEmpty();
         }
 
         private Queue<string> GetCombinations(string characters, int length)
