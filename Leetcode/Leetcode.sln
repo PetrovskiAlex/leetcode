@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backtracking", "Backtracking\Backtracking.csproj", "{C5A56E59-EE40-4950-B7A7-F7E4AD542643}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamic", "Dynamic\Dynamic.csproj", "{CFA467C3-E8A8-476B-BE0F-F1B10F37C952}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{C5A56E59-EE40-4950-B7A7-F7E4AD542643}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5A56E59-EE40-4950-B7A7-F7E4AD542643}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5A56E59-EE40-4950-B7A7-F7E4AD542643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFA467C3-E8A8-476B-BE0F-F1B10F37C952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFA467C3-E8A8-476B-BE0F-F1B10F37C952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFA467C3-E8A8-476B-BE0F-F1B10F37C952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFA467C3-E8A8-476B-BE0F-F1B10F37C952}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
