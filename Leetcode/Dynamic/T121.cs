@@ -11,12 +11,11 @@ namespace Dynamic
         public void MaxProfitTest(int[] prices, int benefit)
         {
             var result = 0;
-            for (int i = 0; i < prices.Length - 1; i++)
+            var minPrice = int.MaxValue;
+            foreach (var price in prices)
             {
-                for (int j = i + 1; j < prices.Length; j++)
-                {
-                    result = Math.Max(result, prices[j] - prices[i]);
-                }
+                minPrice = Math.Min(minPrice, price);
+                result = Math.Max(result, price - minPrice);
             }
 
             result.Should().Be(benefit);
