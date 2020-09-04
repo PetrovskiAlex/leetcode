@@ -5,6 +5,7 @@ namespace Dynamic
 {
     public class T70
     {
+        [TestCase(1, 1)]
         [TestCase(2, 2)]
         [TestCase(3, 3)]
         [TestCase(4, 5)]
@@ -22,7 +23,18 @@ namespace Dynamic
             if (n == 1) return 1;
             if (n == 2) return 2;
 
-            return GetCountClimbStairs(n - 1) + GetCountClimbStairs(n - 2);
+            var previous = 2;
+            var subPrevious = 1;
+
+            var result = previous + subPrevious;
+            for (var i = 3; i <= n; i++)
+            {
+                result = previous + subPrevious;
+                subPrevious = previous;
+                previous = result;
+            }
+
+            return result;
         }
     }
 }
